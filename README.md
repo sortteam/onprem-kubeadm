@@ -25,7 +25,9 @@
    declare -a IPS=(172.31.36.56 172.31.46.134)
    ```
 
-5. `inventory/mycluster/hosts.ini`의 아래 private ip부분을 수정합니다.
+5. `chmod +x install.sh && ./install.sh`
+
+6. `inventory/mycluster/hosts.ini`의 아래 private ip부분을 수정합니다.
 
    ```ini
    [all]
@@ -47,8 +49,6 @@
    kube-master 	 
    kube-node
    ```
-
-6. `chmod +x install.sh && ./install.sh`
 
 7. 다음 명령어로 모든 노드가 연결되어 있는지 ping test를 합니다. `ansible -m ping --private-key ../SoRT.pem -i inventory/mycluster/hosts.ini -u ubuntu all -vvv`
 
