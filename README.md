@@ -52,7 +52,9 @@
 
 7. 다음 명령어로 모든 노드가 연결되어 있는지 ping test를 합니다. `ansible -m ping --private-key ../SoRT.pem -i inventory/mycluster/hosts.ini -u ubuntu all -vvv`
 
-8. `ansible-playbook -i inventory/mycluster/hosts.ini --private-key ../SoRT.pem --become --become-user=root kubespray-2.8.5/cluster.yml` 로 클러스터링을 진행합니다.
+8. `export ANSIBLE_INVALID_TASK_ATTRIBUTE_FAILED=False`
+
+9. `ansible-playbook -i inventory/mycluster/hosts.ini --private-key ../SoRT.pem --become --become-user=root kubespray-2.8.5/cluster.yml` 로 클러스터링을 진행합니다.
 
 ```shell
 ubuntu@ip-172-31-40-12:~$ kubectl get nodes
