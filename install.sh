@@ -19,3 +19,4 @@ do
   ssh -i $PEM_KEY $i "sudo swapoff -a"
 done
 
+CONFIG_FILE=inventory/mycluster/hosts.ini python3 kubespray-${kubespray_version}/contrib/inventory_builder/inventory.py ${IPS[@]}
