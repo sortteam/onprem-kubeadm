@@ -12,11 +12,6 @@ sudo pip install -r kubespray-${kubespray_version}/requirements.txt
 ### private key 상대경로
 PEM_KEY=../SoRT.pem
 ### 모든 노드의 private ips
-declare -a IPS=(172.31.36.56 172.31.46.134)
-
-for i in ${IPS[@]}
-do
-  ssh -i $PEM_KEY $i "sudo swapoff -a"
-done
+declare -a IPS=(172.16.100.100 172.16.100.101 172.16.100.102)
 
 CONFIG_FILE=inventory/mycluster/hosts.ini python3 kubespray-${kubespray_version}/contrib/inventory_builder/inventory.py ${IPS[@]}
